@@ -122,6 +122,19 @@ function rectangularCollision({rectangle1, rectangle2}) {
     );
 }
 
+function determineWinner(player, enemy) {
+    if (player.health === enemy.health) {
+        document.querySelector('#displayText').innerHTML = 'Tie';
+        document.querySelector('#displayText').style.display = 'flex';
+    } else if (player.health > enemy.health) {
+        document.querySelector('#displayText').innerHTML = 'Kenji wins!';
+        document.querySelector('#displayText').style.display = 'flex';
+    } else {
+        document.querySelector('#displayText').innerHTML = 'Maximus wins!';
+        document.querySelector('#displayText').style.display = 'flex';
+    }
+}
+
 let timer = 60;
 
 function decreaseTimer() {
@@ -129,23 +142,20 @@ function decreaseTimer() {
         setTimeout(decreaseTimer, 1000);
         timer--;
         document.querySelector('#timer').innerHTML = timer;
+    } else {
+        determineWinner(player, enemy);
     }
 
-    if (timer === 0) {
-        if (player.health === enemy.health) {
-            document.querySelector('#displayText').innerHTML = 'Tie';
-            document.querySelector('#displayText').style.display = 'flex';
-        } else if (player.health > enemy.health) {
-            document.querySelector('#displayText').innerHTML = 'Kenji wins!';
-            document.querySelector('#displayText').style.display = 'flex';
-        } else {
-            document.querySelector('#displayText').innerHTML = 'Maximus wins!';
-            document.querySelector('#displayText').style.display = 'flex';
-        }
+    // Check if player or enemy health equals 0
+    if (player.health <= 0 || enemy.health <= 0) {
+        determineWinner(player, enemy);
     }
 }
 
+// Call the decreaseTimer function to start the countdown
 decreaseTimer();
+
+
 
 function animate() {
     window.requestAnimationFrame(animate);
@@ -185,6 +195,11 @@ function animate() {
         player.health -= 20;
         
         document.querySelector('#playerHealth').style.width = player.health + "%";
+    }
+
+    //End game based on health
+    if (enemy.health >+ 0 || player.health >+ 0) {
+
     }
 }
 
