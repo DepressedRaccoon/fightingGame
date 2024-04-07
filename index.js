@@ -201,10 +201,10 @@ function animate() {
 
   // Enemy movement
   if (keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
-    enemy.velocity.x = -5
+    enemy.velocity.x = -8
     enemy.switchSprite('run')
   } else if (keys.ArrowRight.pressed && enemy.lastKey === 'ArrowRight') {
-    enemy.velocity.x = 5
+    enemy.velocity.x = 8
     enemy.switchSprite('run')
   } else {
     enemy.switchSprite('idle')
@@ -230,7 +230,7 @@ function animate() {
     player.isAttacking = false
 
     gsap.to('#enemyHealth', {
-      width: enemy.health + '%'
+      width: enemy.health + -20 + '%'
     })
   }
 
@@ -281,7 +281,7 @@ window.addEventListener('keydown', (event) => {
         player.lastKey = 'a'
         break
       case 'w':
-        player.velocity.y = -20
+        player.velocity.y = -15
         break
       case ' ':
         player.attack()
@@ -300,7 +300,7 @@ window.addEventListener('keydown', (event) => {
         enemy.lastKey = 'ArrowLeft'
         break
       case 'ArrowUp':
-        enemy.velocity.y = -20
+        enemy.velocity.y = -15
         break
       case 'ArrowDown':
         enemy.attack()
