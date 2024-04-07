@@ -122,16 +122,30 @@ function rectangularCollision({rectangle1, rectangle2}) {
     );
 }
 
-let timer = 10 
+let timer = 60;
+
 function decreaseTimer() {
-    setTimeout(decreaseTimer, 1000)
-    if (timer > 0) {timer--
-        document.querySelector('#timer').innerHTML = timer
+    if (timer > 0) {
+        setTimeout(decreaseTimer, 1000);
+        timer--;
+        document.querySelector('#timer').innerHTML = timer;
     }
 
+    if (timer === 0) {
+        if (player.health === enemy.health) {
+            document.querySelector('#displayText').innerHTML = 'Tie';
+            document.querySelector('#displayText').style.display = 'flex';
+        } else if (player.health > enemy.health) {
+            document.querySelector('#displayText').innerHTML = 'Kenji wins!';
+            document.querySelector('#displayText').style.display = 'flex';
+        } else {
+            document.querySelector('#displayText').innerHTML = 'Maximus wins!';
+            document.querySelector('#displayText').style.display = 'flex';
+        }
+    }
 }
 
-decreaseTimer()
+decreaseTimer();
 
 function animate() {
     window.requestAnimationFrame(animate);
