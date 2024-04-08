@@ -183,10 +183,10 @@ function animate() {
   // player movement
 
   if (keys.a.pressed && player.lastKey === 'a') {
-    player.velocity.x = -5
+    player.velocity.x = -8
     player.switchSprite('run')
   } else if (keys.d.pressed && player.lastKey === 'd') {
-    player.velocity.x = 5
+    player.velocity.x = 8
     player.switchSprite('run')
   } else {
     player.switchSprite('idle')
@@ -230,7 +230,7 @@ function animate() {
     player.isAttacking = false
 
     gsap.to('#enemyHealth', {
-      width: enemy.health + -20 + '%'
+      width: enemy.health + '%'
     })
   }
 
@@ -283,7 +283,7 @@ window.addEventListener('keydown', (event) => {
       case 'w':
         player.velocity.y = -15
         break
-      case ' ':
+      case 's':
         player.attack()
         break
     }

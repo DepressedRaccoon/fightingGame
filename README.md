@@ -1,5 +1,5 @@
 # fightingGame
- Welcome to a basic fighting game! In this game you are able to move players using WASD and the Arrow Keys. Pressing spacebar allows Player 1 to attack and pressing Arrow Down allows Player 2 to attack. A character wins when either the timer runs out and they have the most health remaining or when a players health is reduced to 0 hit points. 
+ Welcome to a basic fighting game! In this game you are able to move players using WASD and the Arrow Keys. Pressing S allows Player 1 to attack and pressing Arrow Down allows Player 2 to attack. A character wins when either the timer runs out and they have the most health remaining or when a players health is reduced to 0 hit points. 
 
  ## Things to Add
  - Ground logic: Allows the game to detect when a player has touched the ground. 
